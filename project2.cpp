@@ -1,8 +1,11 @@
 #include <iostream>
 #include <fstream>
+#include <sys/stat.h>
 #include <vector>
 #include <filesystem>
-
+#include <chrono>
+#include <ctime>
+#include <string>
 namespace fs = std::filesystem;
 
 // Define a structure to hold file type information
@@ -52,6 +55,7 @@ public:
 
         return "Unknown";
     }
+
     std::streampos getFileSize(const std::string &filename)
     {
         std::ifstream file(filename, std::ios::binary | std::ios::ate);
@@ -107,11 +111,42 @@ public:
 
         return permissionsStr;
     }
+
     std::string getFilePath(const std::string &filepath)
     {
         std::string fullPath = fs::absolute(filepath).string();
-        std::string fileInfo = "File path: " + fullPath + "\n";
+        std::string fileInfo = "File path: " + fullPath;
         return fileInfo;
+    }
+
+    std::string getFileLastModifiedTime(const std::string &filename)
+    {
+        struct stat fileInfo;
+        if (stat(filename.c_str(), &fileInfo) == 0)
+        {
+            return std::ctime(&fileInfo.st_ctime);
+        }
+        else
+        {
+            // Handle the case where stat fails
+            // For example, you might return "Unknown" or throw an exception
+            return "Unknown";
+        }
+    }
+
+    std::string getFileCreationTime(const std::string &filename)
+    {
+        struct stat fileInfo;
+        if (stat(filename.c_str(), &fileInfo) == 0)
+        {
+            return std::ctime(&fileInfo.st_mtime);
+        }
+        else
+        {
+            // Handle the case where stat fails
+            // For example, you might return "Unknown" or throw an exception
+            return "Unknown";
+        }
     }
 };
 
@@ -152,11 +187,18 @@ int main()
         {
             std::cout << "Failed to get the file size." << std::endl;
         }
+
         std::string permissions = fileTypeRegistry.checkFilePermissions(filepath);
         std::cout << "File permissions: " << permissions << std::endl;
 
         std::string fileInfo = fileTypeRegistry.getFilePath(filepath);
         std::cout << fileInfo << std::endl;
+
+        std::string creationTime = fileTypeRegistry.getFileCreationTime(filepath);
+        std::cout << "Creation time: " << creationTime<<std::endl;
+
+        std::string modifiedTime = fileTypeRegistry.getFileLastModifiedTime(filepath);
+        std::cout << "Last modified time: " << modifiedTime<<std::endl;
     }
     else if (fs::is_directory(filepath))
     {
