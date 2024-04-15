@@ -1,0 +1,6 @@
+1 error generated.
+(base) sathwik@Sathwiks-MacBook-Pro GP % cd "/Users/sathwik/Desktop/GP/" && g++ --std=c++20 project.cpp -o project && "/Users/sathwik/Desktop/GP/"project
+Are you entering a bin file? (yes/no): no
+Enter the file path: /Users/sathwik/Desktop/G2/Untitled/G2-Check_New_Products/CSV/BetaList/BetaListProducts_2024-03-31.csv
+File type: CSV
+File Path: File path: /Users/sathwik/Desktop/G2/Untitled/G2-Check_New_Products/CSV/BetaList/BetaListProducts_2024-03-31.csv
