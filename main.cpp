@@ -1,7 +1,3 @@
-
-// main.cpp
-
-
 #include "file_type_registry.cpp"
 #include <iostream>
 #include <fstream>
