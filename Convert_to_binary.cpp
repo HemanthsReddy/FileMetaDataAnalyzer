@@ -76,7 +76,7 @@ void filesToBinaryDump(const vector<string>& files, const string& outputFileName
 
 int main() {
     // List of files to be included in the binary file
-    vector<string> files = {"source/123.png", "source/AlanWalker.mp3","source/BetaListProducts_2024-03-31.csv","source/books.xml","source/EffectiveSTL.pdf", "source/Image.jpeg", "source/TeamPengs.docx","source/test.txt"};
+    vector<string> files = {"source/123.png", "source/AlanWalker.mp3","source/BetaListProducts_2024-03-31.csv","source/books.xml","source/EffectiveSTL.pdf", "source/TeamPengs.docx","source/test.txt"};
 
     // Output binary file name
     string outputFileName = "binary_dump2.bin";
