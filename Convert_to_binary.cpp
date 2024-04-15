@@ -79,7 +79,7 @@ int main() {
     vector<string> files = {"source/123.png", "source/AlanWalker.mp3","source/BetaListProducts_2024-03-31.csv","source/books.xml","source/EffectiveSTL.pdf", "source/TeamPengs.docx","source/test.txt"};
 
     // Output binary file name
-    string outputFileName = "binary_dump2.bin";
+    string outputFileName = "binary_dump.bin";
 
     // Convert files to binary dump
     filesToBinaryDump(files, outputFileName);
