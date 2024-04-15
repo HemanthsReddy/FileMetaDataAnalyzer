@@ -1,5 +1,5 @@
 # File Metadata Analyzer
-The File Metadata Analyzer is a C++ program designed to analyze various types of files and extract metadata such as file type, creation time, file size, and permissions. It supports a variety of file types including JPEG, PNG, PDF, DOCX, MP3, MP4, XML, CSV, and TXT.
+The File Metadata Analyzer, written in C++, employs a multitude of programming concepts to analyze diverse file types and extract metadata efficiently. Utilizing Object-Oriented Programming (OOP), the program structures its functionality around classes and objects, including templates to ensure flexibility and reusability across different data types. File Input/Output (I/O) operations are extensively used to read and write files in binary mode, while dynamic memory allocation manages varying data sizes, especially for file name buffers. Error handling mechanisms are implemented to address potential failures in file operations, and control structures enable iterative processing of files based on their types and contents. Through the integration of these concepts, the File Metadata Analyzer achieves robustness and versatility in its metadata analysis capabilities.
 
 ## Features
 Identification of file types based on magic numbers and file extensions.
@@ -7,7 +7,7 @@ Extraction of creation time, last modified time, and file size.
 Analysis of file permissions.
 Specialized handling for specific file types including text files (TXT) and CSV files.
 ## Dependencies
-STB Image - For loading images.
+STB Image - For loading images.<br>
 C++ Filesystem Library - For file and directory manipulation.
 
 ## Installation
