@@ -20,6 +20,7 @@ git clone https://github.com/HemanthsReddy/FileMetaDataAnalyzer
 ```bash
 g++ --std=c++20 main.cpp -o file_metadata_analyzer
 ```
+<font color="red">Note: Ensure that your compiler supports the C++20 standard. If you encounter any issues, you may need to update your compiler or use a different one that supports C++20.</font>
 
 ## Run the executable:
 ``` bash
