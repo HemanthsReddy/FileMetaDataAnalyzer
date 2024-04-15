@@ -18,7 +18,7 @@ git clone https://github.com/HemanthsReddy/FileMetaDataAnalyzer
 
 ## Compile the program using a C++ compiler (e.g., g++):
 ```bash
-g++ --std=c++20 final_project.cpp -o file_metadata_analyzer
+g++ --std=c++20 main.cpp -o file_metadata_analyzer
 ```
 
 ## Run the executable:
