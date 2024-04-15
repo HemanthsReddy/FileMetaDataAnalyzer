@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <ctime>
-#include <sys/stat.h> // Include sys/stat.h for the stat structure
+#include <sys/stat.h> 
 using namespace std;
 
 // Struct to hold image metadata

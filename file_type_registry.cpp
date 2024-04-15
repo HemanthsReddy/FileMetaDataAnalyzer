@@ -1,8 +1,3 @@
-// file_registry.cpp
-
-// #pragma once
-
-// #include <stb_image.h>
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -17,9 +12,7 @@
 #include <type_traits>
 #include "file_types.cpp"
 #include "additional_metadata_handler.cpp"
-// namespace fs = std::filesystem;
 
-// #pragma GCC diagnostic ignored "-std=c++17"
 
 namespace fs = std::filesystem;
 

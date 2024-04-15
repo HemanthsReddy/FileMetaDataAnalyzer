@@ -1,7 +1,4 @@
-// file_types.cpp
-
 #pragma once
-// #pragma GCC diagnostic ignored "-std=c++17"
 #include <string>
 #include <vector>
 

@@ -3,7 +3,6 @@
 
 
 #include "file_type_registry.cpp"
-// #include "additional_metadata_handler.cpp"
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -16,18 +15,17 @@
 #include <memory>
 #include <cstdint>
 #include <type_traits>
-// #include <stb_image.h>
-// namespace fs = std::filesystem;
 
 namespace fs = std::filesystem;
 
 const FileTypeBase* classtypePtr = nullptr;
 
+
 template<typename T>
-struct is_FileType : std::is_base_of<FileTypeBase, T> {};
+concept DerivedFromFileTypeBase = std::is_base_of<FileTypeBase, T>::value;
 
-
-template<typename FileType, typename T>
+// Function template with concept constraint
+template<DerivedFromFileTypeBase FileType, typename T>
 bool isSpecificFileType(const T* objPtr) {
     const FileType* castedPtr = dynamic_cast<const FileType*>(objPtr);
     return castedPtr != nullptr;
@@ -76,18 +74,7 @@ int main() {
             FileTypeRegistry<FileTypeBase> fileTypeRegistry(filepath);
             fileTypeRegistry.registerFileTypes<JPEGFileType,PNGFileType,PDFFileType,DOCXFileType,MP3FileType,MP4FileType,XMLFileType,CSVFileType,TXTFileType>(jpegFileType, pngFileType, pdfFileType,docxFileType, mp3FileType, mp4FileType,xmlFileType,csvFileType,txtFileType);
             std::string fileType = fileTypeRegistry.identifyFileType();
-            std::cout << "File type: " << fileType<< std::endl;
-
-            // Assuming *classtypePtr returns a pointer to an object
-            // bool isCSVFile = std::is_same<std::remove_pointer<decltype(*classtypePtr)>::type, CSVFileType>::value;
-            // bool isCSVFile = (typeid(*classtypePtr) == typeid(CSVFileType));
-
-            // FileTypeBase file ;
-
-            // fileTypeRegistry.handleFileTypeIfDetected<CSVFileType>(isSpecificFileType<CSVFileType>(classtypePtr));
-            // fileTypeRegistry.handleFileTypeIfDetected<XMLFileType>(isSpecificFileType<XMLFileType>(classtypePtr));
-            // fileTypeRegistry.handleFileTypeIfDetected<PDFFileType>(isSpecificFileType<PDFFileType>(classtypePtr));
-    
+            std::cout << "File type: " << fileType<< std::endl;   
             std::string fileInfo = fileTypeRegistry.getFilePath();
             std::cout << "File Path: "<<fileInfo << std::endl;
             std::string creationTime = fileTypeRegistry.getFileCreationTime();

@@ -1,10 +1,7 @@
 #define STB_IMAGE_IMPLEMENTATION
-// addtional_metadata_handler.cpp
 
-#include <stb_image.h>
+#include "stb_image.h"
 #include "file_types.cpp"
-#include <iostream>
-// #include <stb_image.h>
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
@@ -17,9 +14,7 @@
 #include <memory>
 #include <cstdint>
 #include <type_traits>
-// #include "stb_image.h"
 
-// #pragma GCC diagnostic ignored "-std=c++17"
 
 namespace fs = std::filesystem;
 
